@@ -2,7 +2,7 @@ import time
 import pandas as pd
 import numpy as np
 import calendar
-
+# Additional change 1
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -39,7 +39,7 @@ def get_filters():
     weekdays = ['all', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     while day not in weekdays:
         day = input('What day of the week would you like to analyze? (Please capitalize day or use "all" for all)\n')
-    
+
     print('-'*40)
     return city, month, day
 
@@ -141,7 +141,7 @@ def trip_duration_stats(df):
     # TO DO: display mean travel time
     mean_time = df['Trip Duration'].mean()
     print("The mean travel time is " + str(mean_time))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -163,14 +163,14 @@ def user_stats(df):
     if 'Birth Year' in df.columns:
         earliest = df['Birth Year'].min()
         most_recent = df['Birth Year'].max()
-        most_common = df['Birth Year'].mode()[0] 
-        print("The earliest birth year is ") 
+        most_common = df['Birth Year'].mode()[0]
+        print("The earliest birth year is ")
         print(int(earliest))
         print("The most recent birth year is ")
         print(int(most_recent))
         print("The most common birth year is ")
         print(int(most_common))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -179,12 +179,12 @@ def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
-        
+
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        
+
         counter, counter_2 = 0, 5
         raw_data = "Y"
         while raw_data == "Y":
@@ -199,7 +199,7 @@ def main():
             else:
                 print("Please enter Y or N!")
                 raw_data = "Y"
-            
+
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
