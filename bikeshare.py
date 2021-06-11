@@ -4,6 +4,7 @@ import numpy as np
 import calendar
 
 # Additional change 1
+# Additional change 2
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
